@@ -1,4 +1,3 @@
-/* Reset podstawowy */
 body, html {
     margin: 0;
     padding: 0;
@@ -44,7 +43,36 @@ header {
     align-items: center;
 }
 
-/* Główna część */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    color: white;
+    white-space: nowrap;
+}
+
+#loggedUser {
+    font-weight: bold;
+}
+
+#logoutBtn {
+    background-color: #666;
+    color: #fff;
+    border: none;
+    padding: 6px 14px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+    max-width: 130px;
+    margin: 0;
+}
+
+#logoutBtn:hover {
+    background-color: #4a4a4a;
+}
+
 main.tierlist-container {
     max-width: 1000px;
     margin: 30px auto;
@@ -54,7 +82,6 @@ main.tierlist-container {
     flex-grow: 1;
 }
 
-/* Każda sekcja */
 .tierlist {
     background-color: #fff;
     border-radius: 10px;
@@ -150,6 +177,10 @@ main.tierlist-container {
 
 .tier-slot .game-card {
     display: block;
+}
+
+.my-tierlist .game-card {
+    cursor: grab;
 }
 
 .tier-slot .game-card img {

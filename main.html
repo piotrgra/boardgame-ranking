@@ -10,12 +10,15 @@
   <header>
     <div class="header-content">
       <h1>Ranking granych gier</h1>
-      <span id="loggedUser"></span>
+      <div class="user-info">
+        <span id="loggedUser"></span>
+        <button id="logoutBtn">Wyloguj</button>
+      </div>
     </div>
   </header>
 
   <main class="tierlist-container">
-    <section class="tierlist">
+    <section class="tierlist my-tierlist">
       <h2>Twoja Tier Lista</h2>
       <div class="tier-rankings">
         <div class="tier-row" data-tier="S">
@@ -75,6 +78,9 @@
     
     <section class="tierlist">
       <h2>Twoje zapisane gry</h2>
+      <p class="tier-description">
+        Dodajemy tylko gry, w które graliśmy z minium jednym z nas.
+      </p>
       <div class="tierlist-box" id="gameList">
         <p>Wczytywanie...</p>
       </div>
@@ -85,15 +91,7 @@
   <footer>
     <p>&copy; 2025 Ranking granych gier 🎮</p>
   </footer>
-
-  <script>
-    const user = localStorage.getItem('loggedInUser');
-    if (!user) {
-      window.location.href = "index.html";
-    } else {
-      document.getElementById("loggedUser").textContent = `Zalogowany jako: ${user}`;
-    }
-  </script>
+  
   <script src="firebase-init.js" type="module"></script>
   <script src="database.js" type="module"></script>
   <script src="tier-others.js" type="module"></script>

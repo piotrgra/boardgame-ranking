@@ -7,6 +7,11 @@ document.getElementById('loginBtn').addEventListener('click', () => {
     }
 
     localStorage.setItem('loggedInUser', username);
-    
+
     window.location.href = 'main.html';
 });
+
+const user = localStorage.getItem('loggedInUser');
+if (user) {
+    window.location.href = "main.html";
+}

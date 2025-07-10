@@ -28,7 +28,7 @@ async function fetchGamesMap() {
 
 function renderUserTierList(username, tierData, gameMap) {
     const section = document.createElement("div");
-    section.className = "tierlist";
+    section.className = "other-user-tierlist";
     section.innerHTML = `<h3>Tier Lista: ${username}</h3>`;
 
     const wrapper = document.createElement("div");

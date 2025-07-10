@@ -13,6 +13,7 @@ import {
 const form = document.getElementById("bggForm");
 const preview = document.getElementById("gamePreview");
 const listContainer = document.getElementById("gameList");
+const user = localStorage.getItem('loggedInUser');
 let draggedCard = null;
 
 async function renderTierList(games) {
@@ -229,4 +230,16 @@ function addDragEvents(card) {
         draggedCard = null;
     });
 }
+
+if (!user) {
+    window.location.href = "index.html";
+} else {
+    document.getElementById("loggedUser").textContent = `Cześć ${user}`;
+}
+
+document.getElementById("logoutBtn")?.addEventListener("click", () => {
+    localStorage.removeItem("loggedInUser");
+    window.location.href = "index.html";
+});
+
 
