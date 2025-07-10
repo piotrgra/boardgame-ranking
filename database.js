@@ -46,7 +46,6 @@ form?.addEventListener("submit", async (e) => {
                 };
 
                 await addDoc(collection(db, "games"), cleanGameData);
-                alert("Gra została dodana!");
                 form.reset();
                 preview.innerHTML = "";
                 renderGames();
