@@ -38,6 +38,25 @@
         <p>Tutaj pojawi się globalna topka.</p>
       </div>
     </section>
+    <section class="tierlist">
+      <h2>Dodaj grę z BGG</h2>
+      <div class="tierlist-box">
+        <form id="bggForm">
+          <label for="bggId">BGG Game ID:</label>
+          <input type="number" id="bggId" required />
+          <button type="submit">Dodaj</button>
+        </form>
+        <div id="gamePreview"></div>
+      </div>
+    </section>
+    
+    <section class="tierlist">
+      <h2>Twoje zapisane gry</h2>
+      <div class="tierlist-box" id="gameList">
+        <p>Wczytywanie...</p>
+      </div>
+    </section>
+
   </main>
 
   <footer>
@@ -52,5 +71,8 @@
       document.getElementById("loggedUser").textContent = `Zalogowany jako: ${user}`;
     }
   </script>
+  <script type="module" src="firebase-init.js"></script>
+  <script type="module" src="database.js"></script>
+
 </body>
 </html>
