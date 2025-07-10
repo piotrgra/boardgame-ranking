@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Tier Lista - Panel Główny</title>
+  <title>Ranking granych gier - Panel Główny</title>
   <link href="main.css" rel="stylesheet" />
 </head>
 <body>
   <header>
     <div class="header-content">
-      <h1>Tier Listy Gier</h1>
+      <h1>Ranking granych gier</h1>
       <span id="loggedUser"></span>
     </div>
   </header>
@@ -56,10 +56,12 @@
     
     <section class="tierlist">
       <h2>Wspólna Tier Lista</h2>
-      <div class="tierlist-box">
-        <p>Ranking gier oparty na waszych ocenach – funkcja w trakcie budowy.</p>
-      </div>
+      <p class="tier-description">
+        To zbiorcza tier lista oparta na średniej pozycji każdej gry z wszystkich użytkowników. Im wyżej gra jest klasyfikowana przez innych, tym wyższy ma tier.
+      </p>
+      <div class="tierlist-box" id="consensusTierList"></div>
     </section>
+
 
     <section class="tierlist">
       <h2>TOP Gier</h2>
@@ -89,7 +91,7 @@
   </main>
 
   <footer>
-    <p>&copy; 2025 TierList z ekipą 🎮</p>
+    <p>&copy; 2025 Ranking granych gier 🎮</p>
   </footer>
 
   <script>
