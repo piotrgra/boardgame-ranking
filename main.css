@@ -130,14 +130,15 @@ main.tierlist-container {
 
 .tier-slot {
     flex: 1;
-    min-height: 70px;
+    min-height: 80px;
     padding: 10px;
-    background-color: #f5f5f5;
-    border: 2px dashed #ccc;
-    border-radius: 8px;
+    background: linear-gradient(to bottom right, #f9f9f9, #f0f0f0);
+    border: 2px dashed #dcdcdc;
+    border-radius: 10px;
     display: flex;
     gap: 8px;
     flex-wrap: wrap;
+    transition: background 0.3s;
 }
 
 .tier-slot .game-card {
@@ -149,6 +150,7 @@ main.tierlist-container {
     height: 80px;
     object-fit: fill;
     border-radius: 4px;
+    margin-bottom: 0;
 }
 
 .tier-label.tier-unassigned {

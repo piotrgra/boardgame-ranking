@@ -105,6 +105,15 @@ form?.addEventListener("submit", async (e) => {
                     rank: game.rank,
                 };
 
+                const gamesRef = collection(db, "games");
+                const snapshot = await getDocs(gamesRef);
+                const existing = snapshot.docs.find(doc => doc.data().gameId === game.gameId);
+
+                if (existing) {
+                    alert("Ta gra już istnieje w bazie.");
+                    return;
+                }
+
                 await addDoc(collection(db, "games"), cleanGameData);
                 form.reset();
                 preview.innerHTML = "";
