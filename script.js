@@ -6,9 +6,7 @@ document.getElementById('loginBtn').addEventListener('click', () => {
         return;
     }
 
-    // Zapisz imię do localStorage
     localStorage.setItem('loggedInUser', username);
-
-    // Przekieruj do głównej strony (placeholder)
+    
     window.location.href = 'main.html';
 });
