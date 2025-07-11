@@ -1,43 +1,114 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap');
-
-body, html {
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Rubik', sans-serif;
-    background-color: #f0f2f5;
-    color: #222;
+}
+
+body, html {
     height: 100%;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
 }
 
 main {
     display: flex;
-    height: 100vh;
     align-items: center;
     justify-content: center;
+    height: 100vh;
+    padding: 20px;
 }
 
 .login-container {
-    background: white;
-    padding: 30px 50px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
 }
 
-select, button {
-    display: block;
-    margin-top: 20px;
-    padding: 10px;
-    width: 100%;
-    font-size: 16px;
+.login-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
 }
+
+.login-container h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.login-description {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.select-label {
+    display: block;
+    font-size: 14px;
+    text-align: left;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+select {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    margin-bottom: 20px;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg fill='gray' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 18px 18px;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+select:hover {
+    border-color: #2ecc71;
+    box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.15);
+}
+
+select:focus {
+    outline: none;
+    border-color: #2ecc71;
+    box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.3);
+}
+
 
 button {
-    background-color: #333;
-    color: white;
+    width: 100%;
+    padding: 12px;
+    background-color: #2ecc71;
     border: none;
-    padding: 10px 20px;
-    font-size: 14px;
     border-radius: 6px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #27ae60;
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        padding: 30px 20px;
+    }
+
+    .login-container h1 {
+        font-size: 20px;
+    }
+
+    .login-description {
+        font-size: 13px;
+    }
 }

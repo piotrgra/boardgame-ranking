@@ -3,24 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Ranking granych gier 🎮</title>
-  <link href="board-game.ico" rel="icon" type="image/x-icon" />
+  <title>Ranking gier 🎮</title>
   <link href="index.css" rel="stylesheet" />
+  <link href="board-game.ico" rel="icon" />
 </head>
-<body>  
-<main>
-  <div class="login-container">
-    <h1>Wybierz swoje imię</h1>
-    <select id="username">
-      <option value="">-- Wybierz --</option>
-      <option value="Tomek">Tomek</option>
-      <option value="Damian">Damian</option>
-      <option value="Piotr">Piotr</option>
-    </select>
-    <button id="loginBtn">Zaloguj</button>
-  </div>
-</main>
+<body>
+  <main>
+    <div class="login-container">
+      <div class="login-icon">🎲</div>
+      <h1>Ranking Gier</h1>
+      <p
+        class="login-description">Wybierz swoje imię, aby zalogować się i tworzyć własne tier listy gier planszowych.</p>
 
-<script src="script.js"></script>
+      <label class="select-label" for="username">Wybierz użytkownika:</label>
+      <select id="username">
+        <option value="">-- Wybierz --</option>
+        <option value="Tomek">Tomek</option>
+        <option value="Damian">Damian</option>
+        <option value="Piotr">Piotr</option>
+      </select>
+
+      <button id="loginBtn">Zaloguj</button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
