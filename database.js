@@ -234,7 +234,7 @@ function addDragEvents(card) {
 if (!user) {
     window.location.href = "index.html";
 } else {
-    document.getElementById("loggedUser").textContent = `Cześć ${user}`;
+    document.getElementById("loggedUser").textContent = `${user}`;
 }
 
 document.getElementById("logoutBtn")?.addEventListener("click", () => {

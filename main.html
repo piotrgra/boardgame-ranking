@@ -3,96 +3,85 @@
 <head>
   <meta charset="UTF-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Ranking granych gier 🎮 - Panel główny</title>
-  <link href="board-game.ico" rel="icon" type="image/x-icon" />
+  <title>Ranking Gier 🎮</title>
+  <link href="board-game.ico" rel="icon" />
   <link href="main.css" rel="stylesheet" />
 </head>
 <body>
-  <header>
-    <div class="header-content">
-      <h1>Ranking granych gier</h1>
-      <div class="user-info">
-        <span id="loggedUser"></span>
-        <button id="logoutBtn">Wyloguj</button>
-      </div>
-    </div>
-  </header>
+  <div class="app">
+    <aside class="sidebar">
+      <h2>🎮 RankGier</h2>
+      <nav>
+        <a href="#my-tierlist">📊 Moja Tier Lista</a>
+        <a href="#shared-tierlist">🌐 Wspólna Lista</a>
+        <a href="#add-game">➕ Dodaj grę</a>
+        <a href="#saved-games">💾 Zapisane gry</a>
+        <a href="#" id="logoutBtn" title="Wyloguj się z aplikacji">🚪 Wyloguj</a>
+      </nav>
+    </aside>
 
-  <main class="tierlist-container">
-    <section class="tierlist my-tierlist">
-      <h2>Twoja Tier Lista</h2>
-      <div class="tier-rankings">
+    <main class="content">
+      <header>
+        <h1>Cześć, <span id="loggedUser">Użytkowniku</span> 👋</h1>
+      </header>
+
+      <section class="tierlist my-tierlist" id="my-tierlist">
+        <h2>👤 Twoja Tier Lista</h2>
+
         <div class="tier-row" data-tier="S">
-          <span class="tier-label" data-tier="S">S</span>
+          <div class="tier-label" data-tier="S">S</div>
           <div class="tier-slot" id="tier-S"></div>
         </div>
         <div class="tier-row" data-tier="A">
-          <span class="tier-label" data-tier="A">A</span>
+          <div class="tier-label" data-tier="A">A</div>
           <div class="tier-slot" id="tier-A"></div>
         </div>
         <div class="tier-row" data-tier="B">
-          <span class="tier-label" data-tier="B">B</span>
+          <div class="tier-label" data-tier="B">B</div>
           <div class="tier-slot" id="tier-B"></div>
         </div>
         <div class="tier-row" data-tier="C">
-          <span class="tier-label" data-tier="C">C</span>
+          <div class="tier-label" data-tier="C">C</div>
           <div class="tier-slot" id="tier-C"></div>
         </div>
         <div class="tier-row" data-tier="D">
-          <span class="tier-label" data-tier="D">D</span>
+          <div class="tier-label" data-tier="D">D</div>
           <div class="tier-slot" id="tier-D"></div>
         </div>
-        <div class="tier-row" data-tier="none">
-          <span class="tier-label tier-unassigned">?</span>
+        <div class="tier-row" data-tier="unassigned">
+          <div class="tier-label" data-tier="unassigned">?</div>
           <div class="tier-slot" id="tier-unassigned"></div>
         </div>
-      </div>
-      
-      <div style="text-align: right; margin-top: 15px;">
-        <button id="saveTierListBtn">Zapisz moją tier listę</button>
-      </div>
-    </section>
-    
-    <section class="tierlist" id="otherTierLists">
-      <h2>Tier Listy Innych Użytkowników</h2>
-    </section>
-    
-    <section class="tierlist">
-      <h2>Wspólna Tier Lista</h2>
-      <p class="tier-description">
-        To zbiorcza tier lista oparta na średniej pozycji każdej gry z wszystkich użytkowników. Im wyżej gra jest klasyfikowana przez innych, tym wyższy ma tier.
-      </p>
-      <div class="tierlist-box" id="consensusTierList"></div>
-    </section>
-    
-    <section class="tierlist">
-      <h2>Dodaj grę z BGG</h2>
-      <div class="tierlist-box">
+
+        <button id="saveTierListBtn">💾 Zapisz tier listę</button>
+      </section>
+
+      <section class="tierlist shared-tierlist" id="shared-tierlist">
+        <h2>🌐 Wspólna Tier Lista</h2>
+        <div class="other-tierlist" id="consensusTierList"></div>
+      </section>
+
+      <section class="other-users">
+        <h2>📋 Tier Listy Innych Użytkowników</h2>
+        <div class="accordion-list" id="otherTierLists"></div>
+      </section>
+
+      <section class="add-game" id="add-game">
+        <h2>➕ Dodaj grę z BGG</h2>
         <form id="bggForm">
-          <label for="bggId">BGG Game ID:</label>
-          <input id="bggId" required type="number" />
-          <button type="submit">Dodaj</button>
+          <input id="bggId" placeholder="BGG Game ID" required type="number" />
+          <button type="submit">➕ Dodaj</button>
         </form>
         <div id="gamePreview"></div>
-      </div>
-    </section>
-    
-    <section class="tierlist">
-      <h2>Twoje zapisane gry</h2>
-      <p class="tier-description">
-        Dodajemy tylko gry, w które graliśmy z minium jednym z nas.
-      </p>
-      <div class="tierlist-box" id="gameList">
-        <p>Wczytywanie...</p>
-      </div>
-    </section>
+      </section>
 
-  </main>
+      <section class="saved-games" id="saved-games">
+        <h2>💾 Twoje zapisane gry</h2>
+        <div class="game-grid" id="gameList">Wczytywanie...</div>
+      </section>
+    </main>
+  </div>
 
-  <footer>
-    <p>&copy; 2025 Ranking granych gier 🎮</p>
-  </footer>
-  
   <script src="firebase-init.js" type="module"></script>
   <script src="database.js" type="module"></script>
   <script src="tier-others.js" type="module"></script>

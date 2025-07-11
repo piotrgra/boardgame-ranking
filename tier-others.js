@@ -66,8 +66,9 @@ function renderUserTierList(username, tierData, gameMap) {
         wrapper.appendChild(row);
     });
 
-    section.appendChild(wrapper);
-    otherTierListsContainer.appendChild(section);
+    const html = wrapper.outerHTML;
+    const accordionItem = createAccordionItem(username, html);
+    document.getElementById("otherTierLists").appendChild(accordionItem);
 }
 
 async function renderOtherUsersTierLists() {
@@ -150,6 +151,29 @@ async function renderConsensusTierList() {
     });
 
     consensusContainer.appendChild(wrapper);
+}
+
+function createAccordionItem(username, tierHtmlContent) {
+    const item = document.createElement("div");
+    item.className = "accordion-item";
+
+    const header = document.createElement("div");
+    header.className = "accordion-header";
+    header.textContent = username;
+
+    const content = document.createElement("div");
+    content.className = "accordion-content";
+    content.innerHTML = tierHtmlContent;
+
+    header.addEventListener("click", () => {
+        const all = document.querySelectorAll(".accordion-content");
+        all.forEach(el => el !== content && el.classList.remove("open"));
+        content.classList.toggle("open");
+    });
+
+    item.appendChild(header);
+    item.appendChild(content);
+    return item;
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
