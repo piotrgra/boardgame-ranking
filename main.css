@@ -22,6 +22,10 @@ body, html {
     background-color: #2c3e50;
     color: white;
     padding: 20px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
 }
 
 .sidebar h2 {
@@ -40,13 +44,15 @@ body, html {
     color: #1abc9c;
 }
 
+.user-greeting {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #ecf0f1;
+}
+
 .content {
     flex: 1;
     padding: 30px;
-}
-
-header h1 {
-    margin-bottom: 30px;
 }
 
 section {
@@ -269,6 +275,10 @@ button:hover {
     .sidebar {
         width: 100%;
         text-align: center;
+        position: unset;
+        top: 0;
+        height: unset;
+        overflow-y: auto;
     }
 
     .sidebar nav a {

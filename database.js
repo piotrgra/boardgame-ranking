@@ -17,6 +17,14 @@ const user = localStorage.getItem('loggedInUser');
 let draggedCard = null;
 
 async function renderTierList(games) {
+
+    ["S", "A", "B", "C", "D", "unassigned"].forEach(tier => {
+        const slot = document.getElementById(`tier-${tier}`);
+        if (slot) {
+            slot.innerHTML = "<p>Wczytywanie...</p>";
+        }
+    });
+
     const user = localStorage.getItem("loggedInUser");
     const tiers = ["S", "A", "B", "C", "D"];
     const tierMap = {S: [], A: [], B: [], C: [], D: []};
@@ -131,6 +139,8 @@ form?.addEventListener("submit", async (e) => {
 });
 
 async function renderGames() {
+    listContainer.innerHTML = "<p>Wczytywanie...</p>";
+    
     try {
         const q = query(collection(db, "games"));
         const querySnapshot = await getDocs(q);

@@ -2,13 +2,13 @@ import {db} from './firebase-init.js';
 import {
     collection,
     getDocs,
-    doc,
-    getDoc,
     query,
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const currentUser = localStorage.getItem("loggedInUser");
 const otherTierListsContainer = document.getElementById("otherTierLists");
+const consensusContainer = document.getElementById("consensusTierList");
+
 const tierToValue = {S: 1, A: 2, B: 3, C: 4, D: 5};
 const valueToTier = value =>
     value <= 1.5 ? "S" :
@@ -55,9 +55,8 @@ function renderUserTierList(username, tierData, gameMap) {
 
             const card = document.createElement("div");
             card.className = "game-card";
-            card.innerHTML = `
-        <img src="${game.thumbnail}" alt="${game.name}" />
-      `;
+            card.innerHTML = `<img src="${game.thumbnail}" alt="${game.name}" />`;
+
             slot.appendChild(card);
         });
 
@@ -68,19 +67,23 @@ function renderUserTierList(username, tierData, gameMap) {
 
     const html = wrapper.outerHTML;
     const accordionItem = createAccordionItem(username, html);
-    document.getElementById("otherTierLists").appendChild(accordionItem);
+    otherTierListsContainer.appendChild(accordionItem);
 }
 
 async function renderOtherUsersTierLists() {
+    otherTierListsContainer.innerHTML = "<p>Wczytywanie...</p>";
+
     const q = query(collection(db, "tierlists"));
     const snapshot = await getDocs(q);
     const gameMap = await fetchGamesMap();
+
+    otherTierListsContainer.innerHTML = ""; // usuń loading
 
     snapshot.forEach(docSnap => {
         const username = docSnap.id;
         if (username === currentUser) {
             return;
-        } // pomiń samego siebie
+        }
 
         const tierData = docSnap.data();
         renderUserTierList(username, tierData, gameMap);
@@ -88,13 +91,11 @@ async function renderOtherUsersTierLists() {
 }
 
 async function renderConsensusTierList() {
-    const consensusContainer = document.getElementById("consensusTierList");
-    consensusContainer.innerHTML = "";
+    consensusContainer.innerHTML = "<p>Wczytywanie...</p>";
 
     const tierlistsSnap = await getDocs(collection(db, "tierlists"));
     const gameMap = await fetchGamesMap();
-
-    const tierVotes = {}; // gameId -> [1, 3, 2, ...]
+    const tierVotes = {};
 
     tierlistsSnap.forEach(docSnap => {
         const data = docSnap.data();
@@ -139,9 +140,7 @@ async function renderConsensusTierList() {
         consensusTierMap[tier].forEach(game => {
             const card = document.createElement("div");
             card.className = "game-card";
-            card.innerHTML = `
-        <img src="${game.thumbnail}" alt="${game.name}" />
-      `;
+            card.innerHTML = `<img src="${game.thumbnail}" alt="${game.name}" />`;
             slot.appendChild(card);
         });
 
@@ -150,6 +149,7 @@ async function renderConsensusTierList() {
         wrapper.appendChild(row);
     });
 
+    consensusContainer.innerHTML = ""; // usuń loading
     consensusContainer.appendChild(wrapper);
 }
 

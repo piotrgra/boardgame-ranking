@@ -11,6 +11,9 @@
   <div class="app">
     <aside class="sidebar">
       <h2>🎮 RankGier</h2>
+      <div class="user-greeting">
+        👋 Cześć, <span id="loggedUser">Użytkowniku</span>
+      </div>
       <nav>
         <a href="#my-tierlist">📊 Moja Tier Lista</a>
         <a href="#shared-tierlist">🌐 Wspólna Lista</a>
@@ -21,36 +24,32 @@
     </aside>
 
     <main class="content">
-      <header>
-        <h1>Cześć, <span id="loggedUser">Użytkowniku</span> 👋</h1>
-      </header>
-
       <section class="tierlist my-tierlist" id="my-tierlist">
         <h2>👤 Twoja Tier Lista</h2>
 
         <div class="tier-row" data-tier="S">
           <div class="tier-label" data-tier="S">S</div>
-          <div class="tier-slot" id="tier-S"></div>
+          <div class="tier-slot" id="tier-S"><p>Wczytywanie...</p></div>
         </div>
         <div class="tier-row" data-tier="A">
           <div class="tier-label" data-tier="A">A</div>
-          <div class="tier-slot" id="tier-A"></div>
+          <div class="tier-slot" id="tier-A"><p>Wczytywanie...</p></div>
         </div>
         <div class="tier-row" data-tier="B">
           <div class="tier-label" data-tier="B">B</div>
-          <div class="tier-slot" id="tier-B"></div>
+          <div class="tier-slot" id="tier-B"><p>Wczytywanie...</p></div>
         </div>
         <div class="tier-row" data-tier="C">
           <div class="tier-label" data-tier="C">C</div>
-          <div class="tier-slot" id="tier-C"></div>
+          <div class="tier-slot" id="tier-C"><p>Wczytywanie...</p></div>
         </div>
         <div class="tier-row" data-tier="D">
           <div class="tier-label" data-tier="D">D</div>
-          <div class="tier-slot" id="tier-D"></div>
+          <div class="tier-slot" id="tier-D"><p>Wczytywanie...</p></div>
         </div>
         <div class="tier-row" data-tier="unassigned">
           <div class="tier-label" data-tier="unassigned">?</div>
-          <div class="tier-slot" id="tier-unassigned"></div>
+          <div class="tier-slot" id="tier-unassigned"><p>Wczytywanie...</p></div>
         </div>
 
         <button id="saveTierListBtn">💾 Zapisz tier listę</button>
@@ -58,12 +57,12 @@
 
       <section class="tierlist shared-tierlist" id="shared-tierlist">
         <h2>🌐 Wspólna Tier Lista</h2>
-        <div class="other-tierlist" id="consensusTierList"></div>
+        <div id="consensusTierList"><p>Wczytywanie...</p></div>
       </section>
 
       <section class="other-users">
         <h2>📋 Tier Listy Innych Użytkowników</h2>
-        <div class="accordion-list" id="otherTierLists"></div>
+        <div class="accordion-list" id="otherTierLists"><p>Wczytywanie...</p></div>
       </section>
 
       <section class="add-game" id="add-game">
