@@ -166,8 +166,6 @@ function createAccordionItem(username, tierHtmlContent) {
     content.innerHTML = tierHtmlContent;
 
     header.addEventListener("click", () => {
-        const all = document.querySelectorAll(".accordion-content");
-        all.forEach(el => el !== content && el.classList.remove("open"));
         content.classList.toggle("open");
     });
 
